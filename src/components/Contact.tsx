@@ -73,7 +73,7 @@ export default function Contact({ onSectionVisible }: Props) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          access_key: '45a12558-993b-418f-b304-a6dce901e1b3',
           from_name: 'Portfolio Contact Form',
           name: form.name,
           email: form.email,
