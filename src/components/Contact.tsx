@@ -68,11 +68,32 @@ export default function Contact({ onSectionVisible }: Props) {
       return;
     }
     setStatus('loading');
-    // Simulate form submission (replace with actual API call)
-    await new Promise((r) => setTimeout(r, 1500));
-    setStatus('success');
-    setForm({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setStatus('idle'), 4000);
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          from_name: 'Portfolio Contact Form',
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('success');
+        setForm({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setStatus('idle'), 5000);
+      } else {
+        setStatus('error');
+        setTimeout(() => setStatus('idle'), 4000);
+      }
+    } catch {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   return (
@@ -198,6 +219,19 @@ export default function Contact({ onSectionVisible }: Props) {
                 >
                   <CheckCircle size={18} className="text-green-400 shrink-0" />
                   <p className="text-sm text-green-400">Message sent! I'll get back to you within 24 hours.</p>
+                </motion.div>
+              )}
+
+              {/* Error state */}
+              {status === 'error' && (
+                <motion.div
+                  className="flex items-center gap-3 p-4 rounded-xl border border-red-500/20"
+                  style={{ background: 'rgba(239,68,68,0.08)' }}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                >
+                  <AlertCircle size={18} className="text-red-400 shrink-0" />
+                  <p className="text-sm text-red-400">Something went wrong. Please try again or email directly.</p>
                 </motion.div>
               )}
 
