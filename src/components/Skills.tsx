@@ -68,22 +68,22 @@ export default function Skills({ onSectionVisible }: Props) {
   const filtered = SKILLS.filter((s) => s.category.includes(active));
 
   return (
-    <section ref={ref} id="skills" className="py-28 relative overflow-hidden" style={{ background: '#050508' }}>
+    <section ref={ref} id="skills" className="py-16 sm:py-28 relative overflow-hidden" style={{ background: '#050508' }}>
       {/* Background decoration */}
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] opacity-[0.04] blur-[100px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, #3b82f6, transparent)' }} />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-xs font-semibold text-violet-400 uppercase tracking-widest">Technical Skills</span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
             Tech{' '}
             <span style={{
               background: 'linear-gradient(135deg, #a78bfa, #60a5fa)',
@@ -96,7 +96,7 @@ export default function Skills({ onSectionVisible }: Props) {
         </motion.div>
 
         {/* Marquee */}
-        <div className="relative overflow-hidden mb-12 py-3">
+        <div className="relative overflow-hidden mb-8 sm:mb-12 py-3">
           <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
             style={{ background: 'linear-gradient(to right, #050508, transparent)' }} />
           <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
@@ -117,7 +117,7 @@ export default function Skills({ onSectionVisible }: Props) {
 
         {/* Category filters */}
         <motion.div
-          className="flex flex-wrap justify-center gap-2 mb-10"
+          className="flex flex-wrap justify-center gap-2 mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -149,7 +149,7 @@ export default function Skills({ onSectionVisible }: Props) {
             <motion.div
               key={name}
               layout
-              className="skill-card glass rounded-2xl p-5 flex flex-col items-center gap-3 group cursor-default"
+              className="skill-card glass rounded-2xl p-3 sm:p-5 flex flex-col items-center gap-3 group cursor-default"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}

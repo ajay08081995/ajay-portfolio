@@ -80,7 +80,7 @@ function TimelineItem({ job, index, isLast }: TimelineItemProps) {
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <div ref={ref} className="relative flex gap-6 sm:gap-8">
+    <div ref={ref} className="relative flex gap-4 sm:gap-6">
       {/* Timeline line and dot */}
       <div className="flex flex-col items-center shrink-0">
         <motion.div
@@ -108,7 +108,7 @@ function TimelineItem({ job, index, isLast }: TimelineItemProps) {
 
       {/* Content card */}
       <motion.div
-        className="glass rounded-2xl p-6 mb-6 flex-1 group hover:border-white/[0.12] transition-all duration-300"
+        className="glass rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 flex-1 group hover:border-white/[0.12] transition-all duration-300"
         initial={{ opacity: 0, x: 40 }}
         animate={inView ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
@@ -184,21 +184,21 @@ export default function Experience({ onSectionVisible }: Props) {
   }, [inView, onSectionVisible]);
 
   return (
-    <section ref={ref} id="experience" className="py-28 relative overflow-hidden" style={{ background: '#050508' }}>
+    <section ref={ref} id="experience" className="py-16 sm:py-28 relative overflow-hidden" style={{ background: '#050508' }}>
       <div className="absolute top-1/2 right-0 w-[400px] h-[400px] opacity-[0.04] blur-[100px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, #06b6d4, transparent)' }} />
 
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-8 sm:mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-xs font-semibold text-violet-400 uppercase tracking-widest">Career Journey</span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
             Work{' '}
             <span style={{
               background: 'linear-gradient(135deg, #a78bfa, #60a5fa)',

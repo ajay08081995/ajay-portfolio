@@ -76,23 +76,23 @@ export default function Contact({ onSectionVisible }: Props) {
   };
 
   return (
-    <section ref={ref} id="contact" className="py-28 relative overflow-hidden" style={{ background: '#050508' }}>
+    <section ref={ref} id="contact" className="py-16 sm:py-28 relative overflow-hidden" style={{ background: '#050508' }}>
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-[0.05] blur-[120px] rounded-full"
           style={{ background: 'radial-gradient(circle, #7c3aed, transparent)' }} />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-8 sm:mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-xs font-semibold text-violet-400 uppercase tracking-widest">Get In Touch</span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
             Let's{' '}
             <span style={{
               background: 'linear-gradient(135deg, #a78bfa, #60a5fa)',
@@ -104,7 +104,7 @@ export default function Contact({ onSectionVisible }: Props) {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-10">
           {/* Left: Contact info */}
           <motion.div
             className="space-y-6"

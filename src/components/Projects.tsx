@@ -192,21 +192,21 @@ export default function Projects({ onSectionVisible }: Props) {
   const filtered = PROJECTS.filter((p) => p.tags.includes(filter));
 
   return (
-    <section ref={ref} id="projects" className="py-28 relative overflow-hidden" style={{ background: '#070710' }}>
+    <section ref={ref} id="projects" className="py-16 sm:py-28 relative overflow-hidden" style={{ background: '#070710' }}>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] opacity-[0.04] blur-[120px] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse, #7c3aed, transparent)' }} />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-xs font-semibold text-violet-400 uppercase tracking-widest">Portfolio</span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
             Featured{' '}
             <span style={{
               background: 'linear-gradient(135deg, #a78bfa, #60a5fa)',
@@ -220,7 +220,7 @@ export default function Projects({ onSectionVisible }: Props) {
 
         {/* Filters */}
         <motion.div
-          className="flex flex-wrap justify-center gap-2 mb-10"
+          className="flex flex-wrap justify-center gap-2 mb-8"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -243,7 +243,7 @@ export default function Projects({ onSectionVisible }: Props) {
         </motion.div>
 
         {/* Projects grid */}
-        <motion.div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" layout>
+        <motion.div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" layout>
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => (
               <motion.div
@@ -264,14 +264,14 @@ export default function Projects({ onSectionVisible }: Props) {
                 >
                   <div className="absolute inset-0 opacity-20"
                     style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, white 0%, transparent 50%)' }} />
-                  <span className="text-5xl group-hover:scale-110 transition-transform duration-300">{project.icon}</span>
+                  <span className="text-4xl sm:text-5xl group-hover:scale-110 transition-transform duration-300">{project.icon}</span>
                   <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <ExternalLink size={14} className="text-white/70" />
                   </div>
                 </div>
 
                 {/* Card body */}
-                <div className="p-5 space-y-3">
+                <div className="p-4 sm:p-5 space-y-3">
                   <div>
                     <h3 className="text-base font-bold text-white leading-tight">{project.title}</h3>
                     <p className="text-xs text-slate-500 mt-0.5">{project.subtitle}</p>

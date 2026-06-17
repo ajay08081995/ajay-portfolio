@@ -59,22 +59,22 @@ export default function About({ onSectionVisible }: Props) {
   }, [inView, onSectionVisible]);
 
   return (
-    <section ref={ref} id="about" className="py-28 relative overflow-hidden" style={{ background: '#070710' }}>
+    <section ref={ref} id="about" className="py-16 sm:py-28 relative overflow-hidden" style={{ background: '#070710' }}>
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-[0.04] blur-[100px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, #7c3aed, transparent)' }} />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="text-xs font-semibold text-violet-400 uppercase tracking-widest">About Me</span>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mt-3 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
             Crafting Digital{' '}
             <span style={{
               background: 'linear-gradient(135deg, #a78bfa, #60a5fa)',
@@ -88,11 +88,11 @@ export default function About({ onSectionVisible }: Props) {
         </motion.div>
 
         {/* Stats grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-16">
           {STATS.map(({ value, suffix, label, icon: Icon, color }, i) => (
             <motion.div
               key={label}
-              className="glass rounded-2xl p-6 text-center group hover:scale-105 transition-transform duration-300"
+              className="glass rounded-2xl p-4 sm:p-6 text-center group hover:scale-105 transition-transform duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
@@ -105,7 +105,7 @@ export default function About({ onSectionVisible }: Props) {
                 <Icon size={20} />
               </div>
               <div
-                className="text-3xl sm:text-4xl font-bold mb-1"
+                className="text-2xl sm:text-3xl font-bold mb-1"
                 style={{ color }}
               >
                 <Counter target={value} suffix={suffix} />
@@ -116,7 +116,7 @@ export default function About({ onSectionVisible }: Props) {
         </div>
 
         {/* Main content */}
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-10 items-start">
           {/* Left: About text */}
           <motion.div
             className="space-y-6"

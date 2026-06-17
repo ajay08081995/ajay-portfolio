@@ -33,7 +33,7 @@ export default function LoadingScreen({ onComplete }: Props) {
           {/* Background glow */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div
-              className="w-96 h-96 rounded-full opacity-20 blur-3xl"
+              className="w-64 h-64 sm:w-96 sm:h-96 rounded-full opacity-20 blur-3xl"
               style={{ background: 'radial-gradient(circle, #7c3aed 0%, transparent 70%)' }}
             />
           </div>
