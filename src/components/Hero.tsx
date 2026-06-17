@@ -76,10 +76,10 @@ export default function Hero({ onSectionVisible }: Props) {
       {/* Grid overlay */}
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 py-24 md:py-0 grid md:grid-cols-2 gap-12 lg:gap-20 items-center min-h-screen">
-        {/* Left: Text */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 pt-24 pb-24 md:py-0 grid md:grid-cols-2 gap-8 lg:gap-20 items-center md:min-h-screen">
+        {/* Left: Text — always first (order-1 on mobile AND desktop) */}
         <motion.div
-          className="space-y-6 text-left order-2 md:order-1"
+          className="space-y-5 text-left order-1"
           variants={container}
           initial="hidden"
           animate="show"
@@ -105,7 +105,7 @@ export default function Hero({ onSectionVisible }: Props) {
           </motion.p>
 
           {/* Name */}
-          <motion.h1 variants={item} className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
+          <motion.h1 variants={item} className="text-4xl sm:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
             <span
               style={{
                 background: 'linear-gradient(135deg, #f8fafc 0%, #c4b5fd 50%, #93c5fd 100%)',
@@ -132,7 +132,7 @@ export default function Hero({ onSectionVisible }: Props) {
           </motion.p>
 
           {/* CTA Buttons */}
-          <motion.div variants={item} className="flex flex-wrap gap-3 pt-2">
+          <motion.div variants={item} className="flex flex-wrap gap-2 sm:gap-3 pt-1">
             <motion.button
               onClick={() => scrollTo('projects')}
               className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all"
@@ -183,9 +183,9 @@ export default function Hero({ onSectionVisible }: Props) {
           </motion.div>
         </motion.div>
 
-        {/* Right: Profile image */}
+        {/* Right: Profile image — second on mobile, right column on desktop */}
         <motion.div
-          className="relative flex justify-center items-center order-1 md:order-2"
+          className="relative flex justify-center items-center order-2 overflow-hidden"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
@@ -196,17 +196,17 @@ export default function Hero({ onSectionVisible }: Props) {
 
       {/* Bottom stats bar */}
       <motion.div
-        className="absolute bottom-0 left-0 right-0 border-t border-white/[0.04]"
+        className="relative md:absolute bottom-0 left-0 right-0 border-t border-white/[0.04]"
         style={{ background: 'rgba(5,5,8,0.8)', backdropFilter: 'blur(10px)' }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2, duration: 0.6 }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between overflow-x-auto gap-6">
+        <div className="max-w-7xl mx-auto px-4 py-3 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-0 sm:flex sm:items-center sm:justify-between">
           {STATS.map(({ value, label }) => (
-            <div key={label} className="flex items-center gap-3 shrink-0">
+            <div key={label} className="flex items-center gap-2">
               <span
-                className="text-xl font-bold"
+                className="text-lg font-bold"
                 style={{
                   background: 'linear-gradient(135deg, #a78bfa, #60a5fa)',
                   WebkitBackgroundClip: 'text',
@@ -216,7 +216,7 @@ export default function Hero({ onSectionVisible }: Props) {
               >
                 {value}
               </span>
-              <span className="text-xs text-slate-500 leading-tight">{label}</span>
+              <span className="text-[11px] text-slate-500 leading-tight">{label}</span>
             </div>
           ))}
         </div>
